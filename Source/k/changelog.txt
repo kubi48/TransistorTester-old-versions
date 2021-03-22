@@ -1,0 +1,376 @@
+Unterstützung des "1.5inch OLED Module" mit ssd1327 Controller.
+Für mega328_color_kit die Anzeige der externen Spannung statt der seriellen Ausgabe freigeschaltet.
+Fehlerhafte Elkos werden weniger oft als Diode erkannt.
+Added option LCD_ICON_COLOR for different color selection for big icons.
+Function expand_FET_quadratic mit Rundung.
+Frequenzgrenze für Periodenmessung auf 33kHz verschoben.
+Frequency-Scaler (WITH_FREQUENCY_DIVIDER) reorganisiert, 2er Potenz statt Zahl (1 bis 512).
+Geringerer Flash Benutzung mit Funktionen signed_diff und vcc_diff.
+Maximale Anzahl der Auswahlzeilen für das Menü mit der Option MAX_MENU_LINES wählbar (Standard 5).
+Einstellbarer Vorteiler für Frequenzmessung mit Option WITH_FREQUENCY_DIVIDER.
+Keine Ausgabe von RDS bei IGBTs.
+Zusätzliche Makefile Option NO_FREQ_COUNTER.
+Anzeige  IDss mit der Option FET_Idss für JFETs, wenn unter 40mA.
+Änderung der Anzeige bei unbekanntem Bauteil mit vielen Dioden.
+Messung der Cut-off Spannung bei Verarmungs-FET und JFET (Pieter-Tjerk).
+Fortschrittsanzeige durch Punktreihe beim Test (Pieter-Tjerk).
+Bereich von get_log erweitert.
+Analyse in sampling_lc und peaksearch überarbeitet. 
+Zeit für Abbruch der Frequenzerzeugung auf 2s erhöht.
+Vorbereitung zur Änderung der Portpin-Reihenfolge für TP1-TP3.
+Zusätzliche CRLF auf serieller Schnittstelle, bei Option WITH_UART=2 mit Zeilennummer in Spalte 1. (MAURO)
+1.12 / 22.01.2017
+Zusätzlicher 470k bei der Hälfte der ESR Einzelmessungen.
+Doppelte Ausgabe von Vloss bei 2-zeiligem Display verhindern.
+Bei NPNp und PNPn Transistoren keinen Typ mit hFE < 5 automatisch wählen.
+Unterstützung von ILI9341 Controllern (color Display 320x240).
+ESR-Messung mit kürzeren Strompulsen für Kapazitäten > 20nF.
+Vorbereitung für bessere Unterstützung anderer Frequenzen als 8 und 16 MHz.
+Unterstützung für tschechischen Zeichensatz (Dank an Pavel Kanka). 
+Optionales Menü für Einstellung der Vor- und Hintergrundfarbe.
+Support für Color-kit mit ST7735 Controller und quer eingebautem Display (horizontal/vertikal vertauscht).
+Unterstützung von anderen Quarzfrequenzen bei wait1000ms.
+Unterstützung für Arduino UNO im Verzeichnis arduino_uno, strip-line shield in Hardware/ArduinoUno_shield.
+Frequenzeinstellung in F-generator flexibler gestaltet.
+Texte für fremde Sprachen in langXXX.h aus Transistortester.h ausgelagert. XXX = language
+Auflösung des hFE auf 0.01 erhöht.
+Detektion von BJT für Optokoppler ab hFE 0.1 angepasst.
+hFE bzw. B bei bipolaren Transistoren mit einer Nachkommastelle.
+Drehencoder-Test bei Mega328 nur mit Option WITH_ROTARX_CHECK.
+Berichtigung der NO_NANO Option in DisplayValue wegen neuer femto "f" Einheit.
+Verhindern des Quarztests für größere Kapazitäten.
+Quarztest mit Option WITH_XTAL .
+Unterstützung von Textdisplays mit anderer DD-RAM Adresse mit der Option DD_RAM_OFFSET=128 .
+Verlegung der Messung der Kapazität des Kondensators für die Spulenmessung an das Ende der Kalibration.
+Tausch von Counter1 compare match Interrupts wegen samplingADC (benutzt Counter1 compare match A mit).
+Menü-Auswahl wird bis zu 6 Zeilen lang, wenn Platz auf dem Display ausreicht.
+Überschreiben der Transistor-Icons bei 6x8 und 8x8 Font vermieden.
+Optionsbits der samplingADC Funktion anders definiert, damit auch Assembler die Definitionen benutzt.
+Funktion samplingADC für 8 MHz angepasst.
+Funktion samplingADC für erhöhte Auflösung von Kapazitätsmessung von Pieter-Tjerk (16 MHz).
+Problem mit DC_Pwr_mode in Sonderfunktions-Schleifen beseitigt.
+Neuer Menüfunktion zum Setzen des Korrekturwertes für große Kapazitätswerte, C_H_KORR .
+Kleine Korrekturen, besonders bei Kommentaren.
+Die ADC-Ports für die Testfunktion können auch nicht bei 0 beginnen (- TP1).
+Neue Organisation der Ausgabe zur Beschleunigung der Ausgabe (Menüfunktion).
+Mehr Zeilenwechsel und Leerzeichen für die serielle Ausgabe
+Erweiterung für 128x128 und 128x160 pixel Farbdisplay mit SPI Schnittstelle.
+Erweiterung für 3-zeiliges DOGM LCD.
+Überarbeitung der lcd_init Befehlsfolge für DOG-M (4-line, hflip, vflip).
+Serielle Ausgabe für SSD1803 Controller MODE_1803_SERIAL=7 .
+Wahlmöglichkeit für Schnittstelle bei Textdisplay (4-Bit parallel, SPI und I2C).
+Neue Option LCD_ST7565_Y_START set eine Startzeile für den ST7565/ST7108/SSD1306/ST7920 Controller
+Unterstützung des 3-line seriell Interfaces für den PCF8814 Controller.
+Unterstützung für Displays mit PCF8812 und PCF8814 Controllern.
+Option LCD_SPI_OPEN_COL für SPI Schnittstelle ohne direktes VCC Signal, nur Pull-Up.
+Angabe Flußspannung der Schutzdiode von Transistoren auch für ATmega168.
+Angabe Kollektor-Reststrom bei BJT auch für ATmega168.
+Bei graphischen Displays kann mit der Option NO_LONG_PINLAYOUT die Darstellung der Transistorpins 
+ "123=EBC" statt "1=E 2=B 3=C" gewählt werden.
+Optimierung mit avr-gcc mit Linker-Option --relax
+Bei der Transistoruntersuchung mit dem 470k Widerstand wird das Schalten kurz mit dem 680 Ohm Widerstand unterstützt. 
+Option DC_PWR bestimmt die Batteriespannung, oberhalb derer der DC_Pwr_Mode eingeschaltet wird.
+Korrekturfaktor bei der C*ESR@TP1:3 Kapazitätsmessung durch 2.5% höhere Spannung.
+Auch bei C+ESR@TP1:3 wird negative Restspannung berücksichtigt.
+Bei Kondensatormessung mit grosser Kapazität wird negative Restspannung berücksichtigt.
+Bei "DC Pwr Mode" keine Zeitbeschränkung der Sonderfunktionen.
+Bei graphischen Displays Pin-Belegung von Transistoren als "Pin 1=E 2=B 3=C" in extra Zeile.
+Erkennung des "DC Pwr Mode" bei Batteriespannung unter 0.9V .
+Zeitsteuerung bei GetESR für mega2560 (arduino) angepasst.
+Wartezeit nach Batterie-Unterspannung von 2s auf 5s erhöht.
+Wartezeit für Ir Bestimmung von Dioden verlängert wegen möglicher Kapazität.
+Bestimmung von RDSon für E-MOS Transistoren mit ATmega328/644/1280.
+Frequenz-Eingang für Arduino mega, ATmega2560 ergänzt, PE6 muß mit PE5 gebrückt werden.
+Bei Messungen C+ESR, [RL], [C] und Spannungsmessung wird alle 16 Messungen die Batteriespannung geprüft. 
+Der Kapazitäts- und  Widerstands-Modus sind für Prozessoren mit mehr als 32k Flash ohne Menü verfügbar.
+Der Kapazitäts-Modus wird am Ende der 1. Zeile durch [C] angezeigt.
+Der Widerstands-Modus wird am Ende der 1. Zeile durch [R] oder [RL] angezeigt.
+Der ESR bei der Kapazitätsmessung im rechten Bildschirmbereich angezeigt, wenn meßbar.
+Die Widerstandsmeßfunktion beinhaltet jetzt auch wählbar die Induktivitäten (Option RMETER_WITH_L).
+Beim Kondensator-Meßmodus wird bei Displays mit mehr als 2 Zeilen auch Vloss angezeigt.
+Bei Kondensatoren an TP1:TP3 wechselt das Programm automatisch in den Kondensator-Meßmodus,
+ der durch Tastendruck wieder beendet wird.
+Bei Einzelwiderständen an TP1:TP3 wechselt das Programm automatisch in den Widerstands-Meßmodus,
+  bei Tastendruck wird der Modus beendet.
+Bei kleinen Fonthöhen (<=8) sind 8 Zeilen auf den graphischen Display möglich.
+Getrennte Kondensatormessung an TP1:TP3 ab 1pF über Menü wählbar.
+Interne Struktur der Daten für die Widerstandsmessung geändert.
+Getrennte Widerstandsmessung an TP1:TP3 mit Menü wählbar.
+Bei BJT wird die Flußspannung der Schutzdiode mit angezeigt.
+Bei D-MOS Transistoren wird auch die Gate-Kapazität gemessen.
+Für den ST7108 Controller kann das CS1 / CS2 Signal invertiert werden.
+Bei Fortsetzungszeile wird ein + als letztes Zeichen ausgegeben.
+Die Anordnung der Meßparameter bei Transistoren wurde neu organisiert.
+Bei BJT wird der Kollektor oder Emitterstrom ausgegeben, bei dem hFE gemessen wurde.
+Bei Kondensatoren mit ESR wird der Widerstand auch als Symbol angezeigt bei 4-zeiligem Display.
+Neuanordnung der gemessenen Parameter für graphisches Display, das Icon wird oben links gezeichnet.
+Bei graphischen Display wird auf die zusätzliche Angabe der Pinbelegung und der Schutzdiode als Text verzichtet.
+Interne Überarbeitung der Display-Font Parameter.
+Tester kann nicht mehr ohne Abgleichkondensator kalibriert werden bei Zeitüberschreitung der C>100nF Schleife.
+Überarbeitung der Icons und update bitmaps, großes Fragezeichen bei unbekannten Bauteil.
+lcd_draw_trans_pins und lcd_draw_pin brauchen jetzt relative Adresse bezogen auf die Icon-Position.
+ShowData Funktion um Demonstration der verwendeten Icons erweitert.
+Die Funktion lcd_update_icon() arbeitet immer relativ zur letzten Icon Position.
+Die Funktion lcd_big_icon() kann als Ziel eine der 4 Quadranten des LCD angeben. Standard = unten rechts.
+SetCursor verwendet als vertikal Position (y) eine Auflösung von 8 Pixel, unabhängig von der Fonthöhe.
+Verschiedene Versionen der Transistor-Icons sind mit ICON_TYPE wählbar (1=thin, 2=bold).
+Die Spule wird bei graphischer Ausgabe mit zwei neuen Zeichen, beim Character-display mit "-ww-" gezeichnet.
+Die Update Teile für die Transistor-Icons werden als bitmap mit relativer Lage + Größe (x+y) definiert.
+Die Basis Transistor-Symbole werden als Icons in einem 24x32 pixel font definiert.
+Unbenutze Teile der Font-Dateien wurden entfernt, die Lage der kyrillischen Zeichen verschoben.
+Organisation der Fontdaten mit Höhe >8 geändert, zuerst alle oberen Daten, dann die unteren Daten.
+Doppelte Beschreibung der Schutzdiode bei FET's entfernt, bei langer Form Uf der Diode in Zeile 4.
+Bitmap für Testports größer und invers möglich, Option BIG_TP und INVERSE_TP.
+Unterstuetzung des ST7108 Controllers mit einem seriell-parallel Wandler 74HC164.
+Horizontal und vertical Flip per Software, nicht mehr mit ST7565 Befehl.
+Auswahl fuer 8x12, 8x14, 8x15 und 8x16thin Fonts.
+Unterstuetzung des ST7920 Controllers mit 4-bit parallel und seriell Interface.
+1.11 / 07.02.2015
+Die lcd_clear Funktion für den ST7565 Controller umgestellt.
+Die Anzeigezeiten für das Impulsdrehgeber-Ergebnis verlängert.
+Verkürzung des Strompulses der ESR-Messung von 27us auf 8us.
+Sperrschichtkapazität bei Diode wird mit 2 Dezimalstellen ausgegeben. 3 Stellen nur bei LCD_LINE_LENGTH > 16 .
+Schutzdiode wird bei graphischer Datestellung auch bei bipolaren Transistoren angezeigt.
+Neue Optionen LCD_INTERFACE_MODE=2 und LCD_I2C_ADDR für die I2C Schnittstelle des SSD1306 Kontrollers.
+Anpassung der Korrekturfunktion für die ESR-Messung kleiner Kapazitäten.
+Spezielle Initialisierung des SSD1306 Kontrollers sowie Anpassung der Kontrasteinstellung.
+Neue Option LCD_ST7565_H_OFFSET zur besseren Anpassung an die Lage des Displayfensters.
+Bei Beginn des Selbsttest wird PartFound auf unerkanntes Bauteil gesetzt.
+Fehler beim Freischalten der internen Pull-Up Widerstände beseitigt (no PULLUP-DISABLE).
+Bei Menüfunktion Selbsttest wird der Selbsttest auch ohne verbundene Klemmen nach 30 s gestartet (ohne Nullwiderstand).
+Bei Überschreitung des Nullwiderstandwertes wird auf Standard ESR_ZERO zurückgesetzt.
+Vorzeichenfehler bei ShowData korrigiert.
+Reihenfolge der ST7565 Befehle bei der Initialisierung geändert. 
+Ohne die Option POWER_OFF gibt es keine Menüfunktion "Schalte aus".
+Menüfunktion um Ausgabe der Kalibrationsdaten erweitert (ShowData).
+Standard für Anschluß des Impulsdrehgebers auf PD1 und PD2 geändert.
+Korrektur der Pinbelegungen für ATmega324/644/1284 .
+FAKTOR_ESR für die ESR Korrektur kleiner Kapazitätswerte angepaßt.
+Rücksetzen auf unkalibriert nur bei Kondensatoren > 4.5uF und negativem ESR.
+Alle Bitmaps für den ST7565 Controller sind in bitmaps.h definiert.
+Optimierte Bitmaps für den ST7565 Controller um Platz zu sparen.
+Kondensator für Abgleich muß fünf Mal statt zwei Mal hintereinander erkannt werden.
+Überlaufproblem bei GetESR (cap_val_nF) beseitigt.
+Erkennung von JFET und BJT mit Reststrom nochmals verbessert.
+Wartezeit vor der Ausgabe des Hilfetextes entfernt.
+Unterstützung von 8x8 und 8x16 character Fonts für ST7565 Controller, Dank an Nick L. .
+Kontrasteinstellung für ST7565 Controller als Menüfunktion.
+5ms Wartezeit nach Cursor Home bei der LCD Initialisierung wegen Problem bei Diodensymbol.
+Benutzung des internen Kalibrier-Kondensators für ATmega644/1284 .
+Anpassung der Initialisierung von OLED Displays.
+Externe Spannungsmessung nur mit der Makefile Option WITH_VEXT .
+Für die höchste Auflösung bei Impulsdrehgebern ohne Rastung WITH_ROTARY_SWITCH=5 .
+Die Vergangenheit der Drehgeber-Zustände wird nicht mehr bei jedem wait_for_key_ms Aufruf gelöscht.
+Auch getrennte Up / Down Taster können anstelle des Drehimpulsgebers verwendet werden.
+Der automatische Wechsel der Menüfunktion nach 5 Sekunden wurde deaktiviert.
+Reihenfolge der Beispielfrequenzen geändert.
+Unterstützung eines Drehimpulsgebers an PD2 und PD3 für mega328 für einfachere Menü-Bedienung.
+Bei Frequenzmessung mit 4-zeiligem Display werden für Periodenmessung Zeile 3+4 genutzt.
+Flip für ST7565 Kontroller horizontal und vertikal getrennt wählbar.
+Für den Selbsttest wird der Kalibrationsteil mit dem externen Kondensator nur durchgeführt,
+ wenn zum ersten mal kalibriert wird oder der Selbsttest mit der Menufunktion aufgerufen wird.
+Menü-Funktion für vollständigen Selbsttest, bei Transistortester mit kurzgeschlossenen Testpins
+  wird bei freigeschalteter Menüfunktion nur der Kalibrationsteil aufgerufen.
+Menü-Funktion für Test von Impulsdrehgebern.
+Unterstützung eines graphischen 128x64 LCD mit ST7565 Kontroller von Wolfgang Sch.
+Unterstützung der italienischen Sprache LANG_ITALIAN.
+Bei der Frequenzerzeugung wird als Zeitmarke ein Punkt für 30 Sekunden ausgegeben. 
+Pinbezeichnungen bei TRIAC von GCA in G12 geändert.
+1.10 / 09.04.2014
+Bedienung der Menuefunktionen überarbeitet (Zeitsteuerung und POWER_OFF Option).
+Erweiterung des Meßbereichs für separate C+ESR Messung, 2uF-50mF .
+Vorbereitung zur Unterstützung von mega324/644/1284.
+Zusatzabfrage in CheckPins wegen Falschdetektion von TRIAC als NPNp.
+Separate C+ESR Messung auf TP1 und TP3 im Menü wählbar.
+Prellunterdrückung in wait_for_key_ms() Funktion.
+Korrekturen bei der Frequenzmessung, Auflösung der Frequenz bei niedriger Frequenz bis 1uHz.
+Generator mit einstellbarer Pulsweite eingebaut (10-Bit PWM).
+Makefile Optionen TQFP_ADC6 und TQFP_ADC7 für die Nutzung der zusätzlichen TQFP ADC Eingänge.
+Die Periodenmessungsanteil der Frequenzmessung erfolgt mit anähernd gleicher Meßzeit.
+Funktion DisplayValue unterstützt bis zu 7 Dezimalstellen.
+Bei Frequenzmessung mit 1s Dauer wird der Counter mit ISR sowohl gestartet als auch gestoppt.
+Überarbeitung der Frequenzgenerator-Funktion.
+Extrafunktion Frequenzgenerator an TP2 über den 680 Ohm Widerstand.
+Bei laufendem Timer1 wird der Schlafzustand nicht benutzt.
+Extrafunktion Frequenzmessung an Pin PD4/T0, aber nur mit Serienwiderstand!
+Extrafunktion Spannungsmessung (ohne Tastendruck, daher ohne DC-DC Wandler).
+Menue für Extrafunktionen eingebaut (nur mega328 mit Option WITH_MENU).
+Programm für Optionen WITH_SELFTEST und AUTO_CAL überarbeitet.
+Unterstützung eines Mega2560 auf einem ARDUINO mit bootloader über USB.
+Verwendung vom Assembler Makro AOUT für flexible Port-Auswahl.
+Russische und Ukrainische Hilfetexte für mega328.
+Vor der Messung eines Widerstandes mit GetESR wird erst die Induktivität gemessen.
+Die Abgleichdaten im EEprom werden ohne USE_EEPROM im Programm initialisiert, wenn unbesetzt.
+Alle mega328 Beispielkonfigurationen sind ohne USE_EEPROM konfiguriert.
+Automatische Konfiguration vom Mega168 an den vorhandenen Speicherplatz angepaßt.
+Bei Mega328 wird das UART bei Start deaktiviert wegen möglicherweise vorgeschaltetem Bootloader. 
+Organisation der Kalibrierwerte vereinfacht.
+Speicherbelegung von DisplayValue.c optimiert und Makefile für alle Versionen angepaßt.
+Unterscheidung von Verarmungs-FETs und Anreicherungs-Fets/ bipolare Transistoren angepaßt.
+wait_for_key_ms als Speicher optimierte Assembler-Version.
+sleep_5ms mit verändertem Aufruf in C und Assembler Version.
+getlog als eigene Datei in C und Speicher optimierte Assembler-Version.
+TRIAC Erkennung erweitert, falsche Erkennung mit vertauschtem GC Anschluss als Thyristor wird vermieden.
+Alle Makefiles auf geänderte Binde-Reihenfolge und Assembler Versionen umgestellt.
+config.h in config.h und autoconf.h geteilt, config.h enthält die änderbaren Parameter.
+Funktionen  lcd-routines und PinLayout als opimierte Assembler Versionen.
+Reihenfolge der Objekt-Dateien beim Binden optimiert wegen rcall statt call.
+Funktion i2lcd und u2lcd eingebaut, Assembler und C-Version
+Fehler aus RvalOut.S beseitigt.
+Der unkalibrierte Tester wird durch einen aktivierten Cursor angezeigt, ? character entfällt.
+GetRLmultip.S kann Tabelle im EEprom oder Flash zugreifen, mega168 und mega8.
+Slovakischer Hilfetest für unkalibrierten Tester ergänzt.
+Für unkalibriert wird in 1. Zeile ein Fragezeichen an 16. Stelle statt Ausrufezeichen in 2. Zeile ausgegeben. 
+Problem bei Pinreihenfolge bei Thyristorerkennung beseitigt.
+Funktionen GetRLmultip, UfAusgabe, RvalOut und Refvoltage als getrennte C und Assembler-Version.
+Für mega328 kann die Pinbelegung von Port B für die Widerstände in config.h frei gewählt werden.
+Bei mega328 wird als Kennung für einen Widerstand bei der Diodenmessung ein Symbol statt R genommen.
+Kombination von Dioden und Widerstand wird erkannt und nacheinander ausgegeben,
+damit wird ein BU508D als zwei Dioden (BC und EC) und ein Widerstand (BE) gemessen.
+Diodentest bei mega168/328 erweitert, damit Schutzdioden bei D-MOSFET erkannt werden.
+Spannungsgrenze von .488 auf .599mV in Checkpins geändert wegen Erkennung von D-MOS mit Schutzdiode.
+Anreicherungs IGBTs werden erkannt, Belegung PartMode angepasst.
+Ausgabe von Kollektor-Restströmen für ATmega328, falls nicht Null.
+Erkennung von bipolaren Transistoren mit Kollektor-Reststrom verbessert (Unterscheidung von JFET).
+Bei Kapazitätsmessungen wird bei Unterschreiten der Nullkapazität um 20pF auf unkalibriert zurückgesetzt.
+Beim mega328 wird beim unkalibrierten Tester ein Hilfetext zur Kalibration vor dem Abschalten angezeigt.
+Unkalibrierter Tester wird durch ein ! Zeichen vor der Testen... Meldung angezeigt.
+Grenze für Nullkapazität von 90pF auf 190pF angehoben (wegen Anschluss einer SMD-Pinzette).
+Unterverzeichnisse fuer FiFi und Funkamateur Versionen mit Knopfzelle oder LiPo Akku.
+Thyristor und Triac mit Gate-Spannungsausgabe.
+Anpassungen bei der Transistorerkennung für parasitäre Transistoren NPNp und PNPn.
+Spannungsteiler Verhaeltnis für Batteriespannung und Zener-Spannung in config.h und Makefile aenderbar.
+1.09 / 30.11.2013
+Beseitigung des Ueberlaufproblems bei der Ladezeitmessung in ReadCapacity mit Sleep Mode.
+Die Art der Zaehler-Ueberlaufbehandlung in ReadCapacity mit Sleep Mode geaendert.
+Programmierfehler bei der Kalibration der Nullkapazitaet beseitigt.
+Vorbereitungen fuer Untersuchungen mit alternativen Messwiderstaenden 330/100k.
+Zwei LED werden auch dann erkannt, wenn Schwellspannung >2V und keine gemeinsame Anode oder Kathode.
+Mit der Makefile Option NO_TEST_T1_T7 werden die Selbsttests T1 bis T7 weggelassen für eine schnellere Kalibration.
+Die Makefile Optionen NO_COMMON_EMITTER_HFE und NO_COMMON_COLLECTOR_HFE ergänzt, um gezielt
+eine der beiden Meßmethoden wegzulassen. Beim ATmega168 wird dann der Selbsttest T1 bis T7 benutzt.
+Für den ATmega168 werden beide hFE Messungen verwendet, dafür entfallen die Selbsttests T1 bis T7 .
+Ergänzung der litauischen Sprache LANG_LITHUANIAN.
+Der Selbsttest muss jetzt mit Tastendruck quittiert werden, sonst normale Messung.
+Anpassung der Diodenerkennung, Begrenzung der Spannungsdifferenz.
+Display-Anzeigezeit in der Dokumentation auf 28 Sekunden berichtigt.
+1.08 / 1.10.2013
+Bei BAT_POOR Pegel unter 3.25V ist der Warnpegel nur 0.2V höher. (Die Grenze war vorher bei <=2.9V).
+Die Ueberpruefung der Ausgangs-Widerstandswerte in Calibrate_UR.c wurde entfernt.
+Unterstuetzung von DOG-M LCDs mit ST7036 controller mit Makefile Option LCD_DOGM .
+Neue Unterverzeichnisse mega328 und mega328_strip_grid für ATmega328 Daten.
+Ergänzung der russischen und ukrainischen Sprache.
+Wegen Speichermangel wird die Stromverstärkung nur beim mega328 in Kollektor und Emitterschaltung gemessen.
+Bei der Bestimmung des Stromverstärkungsfaktor in Emitterschaltung wird der Kollektor-Reststrom berücksichtigt.
+Bei Einzeldioden wird auch der Reststrom in Sperrichtung gemessen, der Text Diode entfällt.
+Grenze für die Erkennung von Verarmungs FET von 92 auf 455 erhöht wegen Restströmen bei Germanium Transistoren.
+Abhängigkeit von IGBT Erkennung als E-MOS von der gewählten Pinbelegung beseitigt.
+Ergänzung der portugiesischen Sprache LANG_BRASIL .
+In Makefile den Parameter BitClock fuer avrdude eingebaut zur Anpassung der Programmiergeschwindigkeit.
+Reihenfolge 470k/680 Ohm Test bei Dioden vertauscht und vorherige Entladung wegen Falscherkennung von Elkos.
+1.07 / 19.04.2013
+Makefile Option NO_NANO ergänzt.
+Funktion GetVloss fuer Kondensatoren mit mehr als 5nF erweitert, vorher 50nF.
+Beim Selbsttest wird das Loesen des Kurzschluss bei Test 4 ueberwacht, AllProbesShorted von Markus R.
+Die Funktion GetESR wird beim Abgleich benutzt, um den Nullwiderstand zu bestimmen (pin-abhaengig).
+Funktion GetESR wird auch fuer Widerstandswerte unter 10 Ohm benutzt.
+Funktion GetESR durch neue Assembler Funktion ersetzt.
+Neue Funktion GetVloss, um den Spannungsverlust nach einem Ladepuls bei Kondensatoren kleiner 45uF zu messen.
+Die Funktion GetESR auf Assembler umgestellt, um die Zeitfolge unabhaengig von Optimierung des Kompilers zu machen.
+Belegung von Flash und EEprom Speicher optimiert.
+BAT_POOR Pegel in der Makefile auf mV Angabe umgestellt, bei Angabe unter 1.3V  nur +0.1V Warnung.
+ESR-Messung fuer Kondensatoren ab 0.45uF mit 500kHz ADC Clock ergaenzt.
+Die Aufloesung der Induktivitaetsmessung wird mit 680 Ohm Widerstand auf 0.1mH gesetzt.
+Die Pinreihenfolge bei Einzeldioden wird bei ATmega168/328 entsprechend EBC_STYLE ausgegeben.
+1.06 / 23.2.2013
+Das My und Omega Zeichen werden bei der seriellen Ausgabe durch u und Ohm ersetzt.
+Baudrate für serielle Ausgabe ist 9600 unabhängig der Taktrate.
+Korrekturen systematischer Fehler bei der Induktivitätsmessung eingebaut.
+Ermittlung der Pin-Ausgangswiderstände vor jeder Messung bei Option AUTO_CAL.
+Pinbelegung auch in der Form 321= moeglich mit Option EBC_STYLE=321 .
+Beseitigung Compiler Warnung in ReadCapacity.
+Warteschleife bei automatischer Abschaltung für Dauerbetrieb geeignet.
+wait mit sleep in den lcd-routines verwendet.
+Pinbelegung in 123= Form auch bei mega8 möglich.
+Thyristor und Triac Pinbelegung in 123= Form wie bei Transistoren.
+Sleep bei der Zeitkonstantenmessung mit Counter 1 eingebaut.
+Option INHIBIT_SLEEP_MODE zum Abschalten des Schlaf Modus eingebaut.
+1.05 / 19.01.2013
+Die GetESR Routine wurde überarbeitet und für den 16MHz Betrieb angepasst.
+Die 2.5V Referenz wird mit Ausgang PC4 nach der Messung auf GND gezogen,
+damit kann ein Relais mit zwei Ruhekontakten zum Schutz der Eingänge geschaltet werden.
+Die VCC Spannungsausgabe in Zeile 2 erscheint nur bei der ersten Messung.
+Selbsttest 7 misst das Spannungsverhältnis von 680/470k .
+ADC Messung mit noise reduction sleep Modus für mega168 und mega328.
+Absenkung des Stromverbrauchs bei Wartezeit durch sleep Modus für mega168 und mega328.
+BAT_POOR Schwelle kann auch unter 5.4V gesetzt werden wegen step up Wandler Versorgung.
+CombineII2long ersetzt durch union Schreibweise.
+Testausgabe fuer die Bestimmung der Spannungshöhe für digitalen Input (Zeile 3+4, deaktiviert).
+Einbau einer anderen Methode der MOS Vth Spannungsmessung (deaktiviert).
+1.04 / 01.12.2012
+Die Texte in ReadMe.txt und LiesMich.txt ueberarbeitet.
+Kommentare im Konfigurationsteil der Makefile ueberarbeitet.
+Ausgabeformat für die Pinbelegung von Transistoren von EBC= auf 123= geaendert
+Fehlender interner Pull-Up an Start-Pin ergaenzt.
+Bei Version ohne Abschaltung ist die Anzeigezeit auf 14s verlaengert
+Ergaenzung der Niederländischen Sprache
+1.03 / 23.11.2012
+Makefile für ATmega8 mit Option WITH_AUTO_REF.
+Standardwert für Referenzspannung des ATmega8 nach Messung mit 9 Exemplaren geändert.
+Optionen C_MESS und R_MESS aus der Makefile entfernt.
+Ausgabe der VCC Spannung separat in 2. Zeile für eine Sekunde, wenn Präzisionsreferenz erkannt.
+1.02 / 01.11.2012
+LCD Pin Belegung frei wählbar für Streifenleiterplatine (Dank an Stephen E.)
+Meßverfahren ohne 680 Ohm Widerstand für Induktivitäten bis zu einem Widerstand von 24 Ohm (vorher 8 Ohm).
+Bei erkannter Diode wird kein Widerstand mehr gesucht (MBR 3045 Problem).
+1.01 / 19.10.2012
+Induktivitätsmessung nur bei Widerständen kleiner als 2100 Ohm.
+ESR Messung  mit Nullabgleich bei "negativem" Widerstand (ESR=?).
+Voreinstellung des Nullwertes der ESR-Messung in der Makefile.
+Bei Induktivitätsmessung Null-Offset abhängig von 680 Ohm Widerstand.
+Vermeidung von negativen Werten fuer "unsigned int" Spannungen bei Kapazitätsberechnung.
+ESR-Messung ab 2 uF , kapazitätsabhaengiger Fehler durch Zeitverzug der Einzelmessungen kompensiert.
+Organisatorische Änderungen zum Trennen von Programmteilen.
+ESR-Messung für Kondensatoren ab 4 uF.
+Ergänzung einer ESR-Messung für Kondensatoren über 50 uF (nur mega168 und mega328).
+1.00 / 23.09.2012
+Messung von Induktivitäten auch ohne 680 Ohm Widerstand, wenn Widerstandswert unter 8 Ohm.
+Messung der Spannung bei Widerständen erst, wenn keine Änderung oder Abbruch bei Zeitüberschreitung.
+Messung von Induktivitäten > 1mH eingefügt, der Wert wird zusätzlich zum Widerstandswert ausgegeben.
+VCC Spannungsabhängigkeit der Kondensatormessung kompensiert.
+Verarbeitung der 2.5V Spannungsreferenz, um korrekte VCC Spannung zu verarbeiten.
+Bei Selbsttest 10-11 wird nur der Korrekturwert für den Komparatoroffset ausgegeben und
+wenn die AUTOSCALE_ADC Funktion gewählt wurde, der Korrekturwert für die interne Referenz.
+Bei Selbsttest 9 werden die gefundenen Nullwerte der Kapazitätsmessung ausgegeben.
+Die Selbsttest-Funktion 7 und 8 werden nur noch die Port-Innenwiderstände in Ohm ausgegeben.
+Die Selbsttestfunktionen 7-11 werden separat mit der AUTO_CAL Funktion angewählt und die
+gefundenen Werte im EEprom festgehalten.
+Die Wiederholanzahl für Selbsttest Nr. 1-6 wurde auf 4 reduziert.
+Die Beschränkung für hFE < 65536 entfällt.
+Die Option UF_OUT_MV entfällt.
+Die Funktion value_out wurde durch die Funktion DisplayValue ersetzt, Dank an Markus Reschke!
+Der CAP_EMPTY_LEVEL wurde in der Makefile von 3 auf 4 angehoben.
+Wegen der einstellbaren VCC Spannung die Ausgabe der Selbsttest-Funktion auf Differenzen umgestellt.
+Für die Widerstandmessung kann die Auflösung der ReadADC-Funktion um Faktor 4 angehoben werden.
+Neue ReadADC Funktion mit einstellbarer VCC Spannung und frei wählbarer ANZ_MESS.
+Erweiterung der Autokalibration für AUTOSCALE_ADC (Widerstandsmessung, REF_R_KORR).
+Beim avrdude Aufruf für das fuse Setzen beim ATmega328 in der Makefile wird auch efuse gesetzt.
+0.99 / 15.08.2012
+Autokalibration fuer Kondensatormessung < 40µF (REF_C_KORR).
+Ausgabeformat fuer FET Schwellspannung in V.
+Makefile und config.h für die PicoPower Prozessorvariante -P angepaßt.
+Abgleich der Pin-Ausgangswiderstände bei Selbsttest ergaenzt.
+Nullabgleich fuer Kondensatormessung bei Selbsttest ergänzt.
+Beseitigung der Ursache fuer falsche Pinnummern-Anzeige bei Widerstandsmessung (Dank an Markus Reschke).
+Fuer den Serienmessung kann die Anzeige der Messung verlaengert werden, wenn der Startknopf lang gedrueckt wird
+(modifizierter Vorschlag von Markus Reschke).
+0.98 / 26.07.2012
+Für große Kondensatoren wird der Spannungsverlust während der Ladezeit berücksichtigt.
+Beseitigung des rcall & call Problems bei ReadADC.S für den ATmega168
+Erweiterung und Anpassungen für 16 MHz Takt Betrieb.
+Anpassung des Null-Wertes für die Kondensatormessung für die Platinen-Version 5.2.1 .
+Korrektur des Überlaufproblems bei der Kondensatormessung (etwa 6uF bis 11uF).
+Verbesserung der Widerstandsmessung im mittleren Bereich.
+Korrektur der ANZ_MESS Steuerung (ANZ_MES).
+0.97 / 09.06.2012
+erste Transistortester Version im svn Archiv
